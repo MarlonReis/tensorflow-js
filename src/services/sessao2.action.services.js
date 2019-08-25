@@ -1,10 +1,10 @@
 'use strict'
 
-const tf = require("@tensorflow/tfjs");
+const tf = require("@tensorflow/tfjs-node");
 
 const execute = () => {
     const escalar = tf.scalar(1.5)
-    const tensor1d = tf.tensor1d([1, 2, 3], 'int32')
+    const tensor1d = tf.tensor1d([1.4, 2, 3], 'float32')
     // shape [2,2] significa que tenho 2 demensoes com 2 elemantos cada.    
     // pode ser ecrito nos dois formato a baixo 
     // const tensor2d = tf.tensor2d([[4, 4], [7, 9]], [2, 2]) 
@@ -13,11 +13,10 @@ const execute = () => {
     const tensor3d = tf.tensor3d([[[1, 1, 1]], [[2, 2, 2]], [[3, 3, 3]]], [3, 1, 3], 'int32')
     const tensor4d = tf.tensor4d([[[[1], [2], [3], [4]]]], [1, 1, 4, 1], 'int32')
 
-    console.log(`Escalar ${escalar.toString()}`)
-    console.log(`Tensor 1D ${tensor1d.toString()}`)
-    console.log(`Tensor 2D ${tensor2d.toString()}`)
-    console.log(`Tensor 3D ${tensor3d.toString()}`)
-    console.log(`Tensor 4D ${tensor4d.toString()}`)
+    tensor1d.print()
+    tensor2d.print()
+    tensor3d.print()
+    tensor4d.print()
 
     const response = {
         escalar: escalar.toString(),
@@ -30,9 +29,15 @@ const execute = () => {
     return response
 }
 
+const criaTensoresPadrao = () => {
+    const tensor = tf.tensor([1, 2, 3, 4])
+    tensor.print()
 
-exports.action = async (req, res, next) => {
-    let result = await execute()
-    res.send(result)
+    return tensor.toString()
 }
 
+
+exports.action = async (req, res, next) => {
+    const result = await criaTensoresPadrao();
+    res.send(result)
+}
