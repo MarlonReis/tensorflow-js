@@ -1,0 +1,24 @@
+{
+  "name": "curso-tensorflow-js",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "nodemon ./bin/server.js"
+  },
+  "dependencies": {
+    "@tensorflow/tfjs": "^1.2.8",
+    "@tensorflow/tfjs-node": "^1.2.8",
+    "@tensorflow/tfjs-node-gpu": "^1.2.7",
+    "body-parser": "^1.19.0",
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "ejs": "^2.6.2",
+    "express": "~4.16.1",
+    "express-es6-template-engine": "^2.1.9",
+    "http": "0.0.0",
+    "http-errors": "~1.6.3",
+    "morgan": "~1.9.1",
+    "nodemon": "^1.19.1",
+    "path": "^0.12.7"
+  }
+}
